@@ -77,7 +77,9 @@ Mia Longo (mclongo)
 - Main.java
 
 Khanh Haines (dthaine1)
-- 
+- DBConnection
+- Cliente.java
+- Project structure
 
 Tyler Prim (tprim)
 - 
