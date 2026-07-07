@@ -22,9 +22,13 @@ Requirements
 
 Project Structure
 -----------------
-app/
-    src/main/java/
-    src/test/java/
+src/
+    main/
+        java/
+            coffee/
+    test/
+        java/
+            coffee/
 
 sql/
     coffeeshop_group3_create.sql
@@ -67,9 +71,10 @@ Individual Contributions
 ------------------------
 Mia Longo (mclongo)
 - Project setup
+- Gradle configuration
+- Git repository setup
 - README
 - Main.java
-- Git repository setup
 
 Khanh Haines (dthaine1)
 - 
@@ -81,6 +86,7 @@ Huda Hussain (hahussa4)
 - 
 
 
-
 Notes
-----
+-----
+- Use the SQL scripts in the order listed above when setting up the database.
+- The application is built using Gradle and Java 21.
