@@ -48,43 +48,39 @@ public class Cliente {
         }
     }
 
-    public void updateCliente() {
-        System.out.print("Enter Client ID to update: ");
-        String clientID = scanner.nextLine();
+public void updateCliente() {
+    System.out.print("Enter Client ID to update: ");
+    String clientID = scanner.nextLine();
 
-        System.out.print("Enter new Name: ");
-        String name = scanner.nextLine();
+    System.out.print("Enter new Name: ");
+    String name = scanner.nextLine();
 
-        System.out.print("Enter new Member ID: ");
-        String memberID = scanner.nextLine();
+    System.out.print("Enter new Preferred Roast: ");
+    String preferredRoast = scanner.nextLine();
 
-        System.out.print("Enter new Preferred Roast: ");
-        String preferredRoast = scanner.nextLine();
+    System.out.print("Enter new Preferred Drink: ");
+    String preferredDrink = scanner.nextLine();
 
-        System.out.print("Enter new Preferred Drink: ");
-        String preferredDrink = scanner.nextLine();
+    try {
+        String sql = "UPDATE CLIENTE SET Name = ?, PreferredRoast = ?, PreferredDrink = ? WHERE ClientID = ?";
+        PreparedStatement pstmt = connection.prepareStatement(sql);
+        pstmt.setString(1, name);
+        pstmt.setString(2, preferredRoast);
+        pstmt.setString(3, preferredDrink);
+        pstmt.setString(4, clientID);
 
-        try {
-            String sql = "UPDATE CLIENTE SET Name = ?, MemberID = ?, PreferredRoast = ?, PreferredDrink = ? WHERE ClientID = ?";
-            PreparedStatement pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, name);
-            pstmt.setString(2, memberID);
-            pstmt.setString(3, preferredRoast);
-            pstmt.setString(4, preferredDrink);
-            pstmt.setString(5, clientID);
-
-            int rows = pstmt.executeUpdate();
-            if (rows > 0) {
-                System.out.println("Client updated successfully.");
-            } else {
-                System.out.println("Client not found.");
-            }
-            pstmt.close();
-
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
+        int rows = pstmt.executeUpdate();
+        if (rows > 0) {
+            System.out.println("Client updated successfully.");
+        } else {
+            System.out.println("Client not found.");
         }
+        pstmt.close();
+
+    } catch (SQLException e) {
+        System.out.println(e.getMessage());
     }
+}
 
     public void deleteCliente() {
         System.out.print("Enter Client ID to delete: ");
