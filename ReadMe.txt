@@ -91,8 +91,9 @@ Mia Longo (mclongo)
 - Testing: MySQL connectivity and application functionality
 
 Khanh Haines (dthaine1)
-- DBConnection
+- DBConnection.java
 - Cliente.java
+- Rating.java
 - Project structure
 - Filming/coordinating the video
 
