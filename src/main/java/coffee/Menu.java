@@ -1,11 +1,15 @@
 package coffee;
 
+import java.sql.Connection;
 import java.util.Scanner;
 
 public class Menu {
+
+    private Connection connection;
     private Scanner scanner;
 
-    public Menu() {
+    public Menu(Connection connection) {
+        this.connection = connection;
         scanner = new Scanner(System.in);
     }
 
@@ -29,7 +33,7 @@ public class Menu {
                     handleClienteMenu();
                     break;
                 case "2":
-                    handleDrinkMenu();
+                    drinkMenu();
                     break;
                 case "3":
                     handleBeanMenu();
@@ -74,5 +78,54 @@ public class Menu {
 
     private void handleOrderMenu() {
         System.out.println("Order menu will be added later.");
+    }
+
+   private void drinkMenu() {
+         Drink drink = new Drink(connection);
+
+         boolean running = true;
+
+         while (running) {
+             System.out.println();
+             System.out.println("==== Drink Menu ====");
+             System.out.println("1. Add Drink");
+             System.out.println("2. Update Drink");
+             System.out.println("3. Delete Drink");
+             System.out.println("4. Search Drink");
+             System.out.println("5. List Drinks");
+             System.out.println("6. Back");
+
+             System.out.print("Enter choice: ");
+             String choice = scanner.nextLine();
+
+             switch (choice) {
+                 case "1":
+                     drink.addDrink();
+                     break;
+
+                 case "2":
+                     drink.updateDrink();
+                     break;
+
+                 case "3":
+                     drink.deleteDrink();
+                     break;
+
+                 case "4":
+                     drink.searchDrink();
+                     break;
+
+                 case "5":
+                     drink.listDrinks();
+                     break;
+
+                 case "6":
+                     running = false;
+                     break;
+
+                 default:
+                    System.out.println("Invalid choice.");
+            }
+        }
     }
 }
