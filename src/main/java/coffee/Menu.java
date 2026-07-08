@@ -39,7 +39,7 @@ public class Menu {
                     beanMenu();
                     break;
                 case "4":
-                    handleOrderMenu();
+                    orderMenu();
                     break;
                 case "5":
                     System.out.println("Exiting application.");
@@ -232,5 +232,71 @@ public class Menu {
                     System.out.println("Invalid option.");
             }
         }    
+    }
+
+    private void orderMenu() {
+
+        Order order = new Order(connection);
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.println();
+            System.out.println("==== Order Menu ====");
+            System.out.println("1. Add Order");
+            System.out.println("2. Add Drink To Order");
+            System.out.println("3. Update Order");
+            System.out.println("4. Update Drink Quantity");
+            System.out.println("5. Delete Order");
+            System.out.println("6. Remove Drink From Order");
+            System.out.println("7. Search Order");
+            System.out.println("8. List Orders");
+            System.out.println("9. Back");
+            System.out.print("Enter choice: ");
+
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    order.addOrder();
+                    break;
+
+                case "2":
+                    order.addDrinkToOrder();
+                    break;
+
+                case "3":
+                    order.updateOrder();
+                    break;
+
+                case "4":
+                    order.updateDrinkQuantity();
+                    break;
+
+                case "5":
+                    order.deleteOrder();
+                    break;
+
+                case "6":
+                    order.removeDrinkFromOrder();
+                    break;
+
+                case "7":
+                    order.searchOrder();
+                    break;
+
+                case "8":
+                    order.listOrders();
+                    break;
+
+                case "9":
+                    running = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid option.");
+            }
+        }
     }
 }
