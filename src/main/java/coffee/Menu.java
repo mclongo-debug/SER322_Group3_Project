@@ -36,7 +36,7 @@ public class Menu {
                     drinkMenu();
                     break;
                 case "3":
-                    handleBeanMenu();
+                    beanMenu();
                     break;
                 case "4":
                     handleOrderMenu();
@@ -171,5 +171,66 @@ public class Menu {
                     System.out.println("Invalid option.");
             }
         }
+    }
+   
+    private void beanMenu() {
+
+       Bean bean = new Bean(connection);
+
+        boolean running = true;
+
+        while (running) {
+
+            System.out.println();
+            System.out.println("==== Bean Menu ====");
+            System.out.println("1. Add Bean");
+            System.out.println("2. Update Bean");
+            System.out.println("3. Delete Bean");
+            System.out.println("4. Search Bean");
+            System.out.println("5. List Beans");
+            System.out.println("6. Search Beans by Origin");
+            System.out.println("7. List Drinks Using Bean");
+            System.out.println("8. Back");
+            System.out.print("Enter choice: ");
+
+            String choice = scanner.nextLine();
+
+            switch (choice) {
+                case "1":
+                    bean.addBean();
+                    break;
+
+                case "2":
+                    bean.updateBean();
+                    break;
+
+                case "3":
+                    bean.deleteBean();
+                    break;
+
+                case "4":
+                    bean.searchBean();
+                    break;
+
+                case "5":
+                    bean.listBeans();
+                    break;
+
+                case "6":
+                    bean.searchBeansByOrigin();
+                    break;
+
+                case "7":
+                    bean.listDrinksUsingBean();
+                    break;
+
+                case "8":
+                    running = false;
+                    break;
+
+                default:
+                    System.out.println("Invalid option.");
+            }
+        }    
     }
 }
