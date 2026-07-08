@@ -26,9 +26,6 @@ src/
     main/
         java/
             coffee/
-    test/
-        java/
-            coffee/
 
 sql/
     coffeeshop_group3_create.sql
@@ -37,30 +34,46 @@ sql/
 
 Creating the Database
 ---------------------
-1. Create a new MySQL database.
-2. Open MySQL Workbench.
-3. Run:
-      sql/coffeeshop_group3_create.sql
-4. Run:
-      sql/coffeeshop_group3_insert.sql
+1. Make sure MySQL is installed and running.
+
+2. Open a terminal and log into MySQL:
+      mysql -u root -p
+
+3. Create the project database:
+      CREATE DATABASE CoffeeShop_Group3;
+
+4. Exit MySQL:
+      EXIT;
+
+5. From the project root directory, create the database tables:
+      mysql -u root -p CoffeeShop_Group3 < sql/coffeeshop_group3_create.sql
+
+6. Load the sample data:
+      mysql -u root -p CoffeeShop_Group3 < sql/coffeeshop_group3_insert.sql
 
 Building the Project
 --------------------
-From the project root:
-
-    ./gradlew build
+From the project root directory, build the project:
+      ./gradlew clean build
 
 Running the Application
 -----------------------
-From the project root:
+Run the application from the project root:
+      ./gradlew run --console=plain
 
-    ./gradlew run
+When prompted, enter your MySQL connection information.
 
-Testing
--------
-Run all tests:
+Database URL:
+      jdbc:mysql://localhost:3306/CoffeeShop_Group3
 
-    ./gradlew test
+Username:
+      Your local MySQL username
+      (example: root)
+
+Password:
+      Your local MySQL password
+
+After connecting successfully, the application will display the main menu where you can access the Cliente, Drink, Bean, and Order modules.
 
 Video
 -----
@@ -70,23 +83,27 @@ Video URL:
 Individual Contributions
 ------------------------
 Mia Longo (mclongo)
-- Project setup
-- Gradle configuration
-- Git repository setup
-- README
+- Project setup, Git repository setup, Gradle configuration
+- README and setup documentation
 - Main.java
+- Menu.java
+- Database integration: Integrated Drink, Cliente, Bean, and Order modules
+- Testing: MySQL connectivity and application functionality
 
 Khanh Haines (dthaine1)
 - DBConnection
 - Cliente.java
 - Project structure
+- Filming/coordinating the video
 
 Tyler Prim (tprim)
-- 
+- Bean.java
+- Order.java
 
 Huda Hussain (hahussa4)
-- 
-
+- Drink.java
+- Script for intro, conclusion, and my part of the code for the video
+- Testing: MySQL connectivity and application functionality
 
 Notes
 -----
