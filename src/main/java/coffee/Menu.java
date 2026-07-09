@@ -3,6 +3,8 @@ package coffee;
 import java.sql.Connection;
 import java.util.Scanner;
 
+
+
 public class Menu {
 
     private Connection connection;
@@ -42,6 +44,9 @@ public class Menu {
                     orderMenu();
                     break;
                 case "5":
+                    RatingMenu();
+                    break;
+                case "6":
                     System.out.println("Exiting application.");
                     running = false;
                     break;
@@ -60,7 +65,8 @@ public class Menu {
         System.out.println("2. Drink");
         System.out.println("3. Bean");
         System.out.println("4. Order");
-        System.out.println("5. Exit");
+        System.out.println("5. Rating");
+        System.out.println("6. Exit");
         System.out.print("Enter choice: ");
     }
 
@@ -297,6 +303,38 @@ public class Menu {
                 default:
                     System.out.println("Invalid option.");
             }
+        }
+    }
+    private void RatingMenu() {
+        Rating rating = new Rating(connection);
+
+        System.out.println("\n==== Rating Menu ====");
+        System.out.println("1. Add Rating");
+        System.out.println("2. Delete Rating");
+        System.out.println("3. Search Rating");
+        System.out.println("4. List All Ratings");
+        System.out.print("Enter choice: ");
+
+        String choice = scanner.nextLine();
+        switch (choice) {
+            case "1":
+                rating.addRating();
+                break;
+
+            case "2":
+                rating.deleteRating();
+                break;
+
+            case "3":
+                rating.searchRating();
+                break;
+
+            case "4":
+                rating.listRatings();
+                break;
+
+            default:
+                System.out.println("Invalid choice.");
         }
     }
 }

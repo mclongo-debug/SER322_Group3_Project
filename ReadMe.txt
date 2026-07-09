@@ -78,7 +78,7 @@ After connecting successfully, the application will display the main menu where 
 Video
 -----
 Video URL:
-(TBD)
+https://www.youtube.com/watch?v=uk-oy59jv4E
 
 Individual Contributions
 ------------------------
